@@ -1,0 +1,57 @@
+{
+  "name": "gtfs-ride",
+  "description": "Build GTFS-RT from APC data.",
+  "version": "0.0.1",
+  "keywords": [
+    "transit",
+    "gtfs",
+    "transportation",
+    "gtfs-rt"
+  ],
+  "private": false,
+  "author": "Brendan Nee <brendan@blinktag.com>",
+  "contributors": [],
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./app",
+    "test": "xo"
+  },
+  "bin": {
+    "gtfs-ride": "bin/gtfs-ride.js"
+  },
+  "main": "index",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "gtfs": "^2.1.0",
+    "lodash": "^4.17.20",
+    "pretty-error": "^2.1.2",
+    "sanitize-filename": "^1.6.3",
+    "timer-machine": "^1.1.0",
+    "untildify": "^4.0.0",
+    "yargs": "^16.1.0"
+  },
+  "devDependencies": {
+    "xo": "^0.34.2"
+  },
+  "engines": {
+    "node": ">= 14.15.1"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    }
+  },
+  "false": {}
+}
