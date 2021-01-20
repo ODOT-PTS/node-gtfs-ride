@@ -21,12 +21,16 @@
   },
   "main": "index",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "chalk": "^4.1.0",
+    "cli-table": "^0.3.4",
+    "csv-parse": "^4.14.2",
     "fs-extra": "^9.0.1",
-    "gtfs": "^2.1.0",
+    "gtfs": "file:../node-gtfs",
     "lodash": "^4.17.20",
     "pretty-error": "^2.1.2",
     "sanitize-filename": "^1.6.3",
+    "strip-bom-stream": "^4.0.0",
     "timer-machine": "^1.1.0",
     "untildify": "^4.0.0",
     "yargs": "^16.1.0"

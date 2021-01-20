@@ -1,7 +1,11 @@
 {
-  "agency": {
-    "agency_key": "youragency",
-    "gtfs_static_url": "https://marintransit.org/data/google_transit.zip",
-    "gtfs_rt_tripupdates_url": "https://marintransit.net/gtfs-rt/tripupdates"
-  }
+  "gtfs": {
+    "agency_key": "rvtd",
+    "gtfs_static_path": "data/RVTD/gtfs"
+  },
+  "apc": {
+    "type": "rvtd",
+    "path": "data/RVTD/boardings_alightings_rvtd_2017.csv"
+  },
+  "sqlitePath": "/tmp/gtfs"
 }

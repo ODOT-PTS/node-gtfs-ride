@@ -29,7 +29,6 @@ Allows specifying a path to a configuration json file. By default, `gtfs-ride` w
 
     gtfs-ride --configPath /path/to/your/custom-config.json
 
-
 ## Configuration
 
 Copy `config-sample.json` to `config.json` and then add your projects configuration to `config.json`.
@@ -38,12 +37,12 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 | option | type | description |
 | ------ | ---- | ----------- |
-| [`agency`](#agency) | array | Information about the GTFS and GTFS-RT to be used. |
+| [`gtfs`](#gtfs) | object | Information about the GTFS and GTFS-RT to be used. |
 | [`sqlitePath`](#sqlitepath) | string | A path to an SQLite database. Optional, defaults to using an in-memory database. |
 
-### agency
+### gtfs
 
-{Object} Specify the GTFS file to be imported in an `agency` object. Static GTFS files can be imported via a `url` or a local `path`.
+{Object} Specify the GTFS file to be imported in an `gtfs` object. Static GTFS files can be imported via a `url` or a local `path`.
 
 `agency_key` is a short name you create that is specific to that GTFS file.
 
@@ -51,15 +50,12 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 `gtfs_static_path` is the local path to an agency's static GTFS on your local machine. Either `gtfs_static_url` or `gtfs_static_path` is required.
 
-`gtfs_rt_tripupdates_url` is the URL of an agency's GTFS-RT trip updates. Note that the GTFS-RT URL must support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in order for the widget to work.
-
 * Specify a download URL for static GTFS:
 ```
 {
-  "agency": {
+  "gtfs": {
     "agency_key": "marintransit",
-    "gtfs_static_url": "https://marintransit.org/data/google_transit.zip",
-    "gtfs_rt_tripupdates_url": "https://marintransit.net/gtfs-rt/tripupdates"
+    "gtfs_static_url": "https://marintransit.org/data/google_transit.zip"
   }
 }
 ```
@@ -67,20 +63,18 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 * Specify a path to a zipped GTFS file:
 ```
 {
-  "agency": {
+  "gtfs": {
     "agency_key": "marintransit",
-    "gtfs_static_path": "/path/to/the/gtfs.zip",
-    "gtfs_rt_tripupdates_url": "https://marintransit.net/gtfs-rt/tripupdates"
+    "gtfs_static_path": "/path/to/the/gtfs.zip"s
   }
 }
 ```
 * Specify a path to an unzipped GTFS file:
 ```
 {
-  "agency": {
+  "gtfs": {
     "agency_key": "marintransit",
-    "gtfs_static_path": "/path/to/the/unzipped/gtfs",
-    "gtfs_rt_tripupdates_url": "https://marintransit.net/gtfs-rt/tripupdates"
+    "gtfs_static_path": "/path/to/the/unzipped/gtfs"
   }
 }
 ```
