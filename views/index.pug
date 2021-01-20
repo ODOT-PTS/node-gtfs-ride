@@ -1,0 +1,10 @@
+extends layout
+block content
+  .container.mx-4.h-screen.items-stretch(class="md:mx-auto md:flex")
+    if !boardAlights || !boardAlights.length
+      .flex.justify-center
+        .bg-blue-700.text-white.font-bold.rounded-lg.border.shadow-lg.text-lg.p-8 No timetables found
+    else
+      .overview-list.flex-none(class="md:overflow-y-scroll")
+        each boardAlight in boardAlights
+          div route
