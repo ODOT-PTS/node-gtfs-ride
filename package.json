@@ -24,22 +24,23 @@
     "bluebird": "^3.7.2",
     "chalk": "^4.1.0",
     "cli-table": "^0.3.4",
-    "csv-parse": "^4.14.2",
+    "csv-parse": "^4.15.0",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "gtfs": "file:../node-gtfs",
     "lodash": "^4.17.20",
+    "luxon": "^1.25.0",
     "morgan": "^1.10.0",
-    "pretty-error": "^2.1.2",
+    "pretty-error": "^3.0.3",
     "pug": "^3.0.0",
     "sanitize-filename": "^1.6.3",
     "strip-bom-stream": "^4.0.0",
     "timer-machine": "^1.1.0",
     "untildify": "^4.0.0",
-    "yargs": "^16.1.0"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "xo": "^0.34.2"
+    "xo": "^0.37.1"
   },
   "engines": {
     "node": ">= 14.15.1"

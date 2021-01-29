@@ -41,7 +41,7 @@ router.get('/api/board-alight', async (request, response, next) => {
   } catch (error) {
     next(error);
   }
-})
+});
 
 app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'pug');
