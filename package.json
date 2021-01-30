@@ -32,6 +32,7 @@
     "luxon": "^1.25.0",
     "morgan": "^1.10.0",
     "pretty-error": "^3.0.3",
+    "progress": "^2.0.3",
     "pug": "^3.0.0",
     "sanitize-filename": "^1.6.3",
     "strip-bom-stream": "^4.0.0",
