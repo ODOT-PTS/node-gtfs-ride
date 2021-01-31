@@ -34,6 +34,11 @@ block content
           select(id="direction-select")
             option(value="") Select a Direction
 
+        div.mb-3.hidden
+          label.mr-3 Day
+          select(id="day-select")
+            option(value="all") All time
+
     canvas(id="gtfs-ride-chart" width="400" height="100")
 
 

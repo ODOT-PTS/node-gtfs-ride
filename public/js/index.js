@@ -1,10 +1,12 @@
-/* global document, fetch, Chart, routes */
+/* global document, fetch, alert, Chart, luxon, _, routes */
 
 let routeId;
 let directionId;
+let selectedDay;
 let boardAlightData;
 const routeSelect = document.querySelector('#route-select');
 const directionSelect = document.querySelector('#direction-select');
+const daySelect = document.querySelector('#day-select');
 
 const chart = new Chart('gtfs-ride-chart', {
   type: 'line',
@@ -97,6 +99,7 @@ function updateChart() {
   const route = routes.find(route => route.route_id === routeId);
 
   if (boardAlightData.routeStopOrder.length === 0) {
+    /* eslint-disable-next-line no-alert */
     alert(`No ridership data available for Route ${formatRouteName(route)}.`);
   }
 
@@ -112,6 +115,10 @@ function updateChart() {
   });
 
   for (const boardAlight of boardAlightData.boardAlights) {
+    if (selectedDay !== undefined && selectedDay !== 'all' && selectedDay !== boardAlight.service_date.toString()) {
+      continue;
+    }
+
     const dataPoint = data.find(item => item.stop_id === boardAlight.stop_id);
 
     if (boardAlight.boardings !== null) {
@@ -137,6 +144,8 @@ function updateChart() {
 
 routeSelect.addEventListener('change', event => {
   directionSelect.length = 0;
+  daySelect.length = 0;
+  daySelect.parentElement.classList.add('hidden');
   if (event.target.value === '') {
     directionSelect.parentElement.classList.add('hidden');
     return;
@@ -162,13 +171,34 @@ routeSelect.addEventListener('change', event => {
 });
 
 directionSelect.addEventListener('change', async event => {
+  daySelect.length = 0;
   if (event.target.value === '') {
+    daySelect.parentElement.classList.add('hidden');
     return;
   }
 
   directionId = event.target.value;
 
-  boardAlights = await getBoardAlights();
+  await getBoardAlights();
 
+  updateChart();
+
+  const option = document.createElement('option');
+  option.text = 'all';
+  option.value = 'all';
+  daySelect.append(option);
+  const days = _.map(_.uniqBy(boardAlightData.boardAlights, 'service_date'), 'service_date');
+  for (const day of days) {
+    const option = document.createElement('option');
+    option.text = luxon.DateTime.fromFormat(day.toString(), 'yyyyMMdd').toISODate();
+    option.value = day;
+    daySelect.append(option);
+  }
+
+  daySelect.parentElement.classList.remove('hidden');
+});
+
+daySelect.addEventListener('change', async event => {
+  selectedDay = event.target.value;
   updateChart();
 });
