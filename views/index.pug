@@ -1,10 +1,42 @@
 extends layout
+
 block content
-  .container.mx-4.h-screen.items-stretch(class="md:mx-auto md:flex")
-    if !boardAlights || !boardAlights.length
-      .flex.justify-center
-        .bg-blue-700.text-white.font-bold.rounded-lg.border.shadow-lg.text-lg.p-8 No timetables found
+  -
+    function formatRouteName(route) {
+      const nameParts = [];
+
+      if (route.route_short_name !== '' && route.route_short_name !== null) {
+        nameParts.push(route.route_short_name);
+      }
+
+      if (route.route_long_name !== '' && route.route_long_name !== null) {
+        nameParts.push(route.route_long_name);
+      }
+      
+      return nameParts.join(' - ');
+    }
+
+  .container.mx-4.justify-center
+    if !routes || !routes.length
+      .bg-blue-700.text-white.font-bold.rounded-lg.border.shadow-lg.text-lg.p-8.m-5 No routes found
     else
-      .overview-list.flex-none(class="md:overflow-y-scroll")
-        each boardAlight in boardAlights
-          div route
+      .bg-grey-100.font-bold.rounded-lg.border.shadow-lg.p-8.m-5
+        h1.text-2xl.mb-4 Ridership Graphs
+        div.mb-3
+          label.mr-3 Route
+          select(id="route-select")
+            option(value="") Select a Route
+            each route in routes
+              option(value=route.route_id)= formatRouteName(route)
+
+        div.mb-3.hidden
+          label.mr-3 Direction
+          select(id="direction-select")
+            option(value="") Select a Direction
+
+    canvas(id="gtfs-ride-chart" width="400" height="100")
+
+
+  //- Use #{variable} format to inject values from pug to client side js
+  script.
+    const routes = !{JSON.stringify(routes) || '\'\''};
