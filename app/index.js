@@ -14,7 +14,6 @@ const router = new express.Router();
 
 const config = utils.setDefaultConfig(selectedConfig);
 // Override noHead config option so full HTML pages are generated
-config.noHead = false;
 config.assetPath = '/';
 config.log = console.log;
 config.logWarning = console.warn;

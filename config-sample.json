@@ -1,11 +1,7 @@
 {
-  "gtfs": {
-    "agency_key": "rvtd",
-    "gtfs_static_path": "data/RVTD/gtfs"
-  },
-  "apc": {
-    "type": "rvtd",
-    "path": "data/RVTD/boardings_alightings_rvtd_2017.csv"
-  },
+  "agencyKey": "rvtd",
+  "gtfsPath": "data/RVTD/gtfs",
+  "apcType": "rvtd",
+  "apcPath": "data/RVTD/boardings_alightings_rvtd_2017.csv",
   "sqlitePath": "/tmp/gtfs"
 }
