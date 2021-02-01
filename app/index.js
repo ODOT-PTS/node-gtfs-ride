@@ -61,12 +61,21 @@ router.get('/api/board-alights', async (request, response, next) => {
     const values = [request.query.route_id];
 
     let directionQuery = '';
-    if (request.direction_id !== 'null') {
+    if (request.query.direction_id === 'null') {
+      directionQuery = 'AND direction_id IS NULL';
+    } else if (request.query.direction_id !== undefined) {
       directionQuery = 'AND direction_id = ?';
       values.push(Number.parseInt(request.query.direction_id, 10));
     }
 
     const boardAlights = await db.all(`SELECT board_alight.trip_id, route_id, stop_id, boardings, alightings, load_count, service_date FROM board_alight LEFT JOIN trips ON board_alight.trip_id = trips.trip_id WHERE route_id = ? ${directionQuery} ORDER BY stop_sequence ASC`, values);
+
+    // If no direction_id, just return all board alights
+    if (request.query.direction_id === undefined) {
+      return response.json({
+        boardAlights
+      });
+    }
 
     // Use a directed graph to determine stop order.
     const tripGroups = groupBy(boardAlights, 'trip_id');

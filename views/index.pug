@@ -20,7 +20,7 @@ block content
     if !routes || !routes.length
       .bg-blue-700.text-white.font-bold.rounded-lg.border.shadow-lg.text-lg.p-8.m-5 No routes found
     else
-      .bg-grey-100.font-bold.rounded-lg.border.shadow-lg.p-8.m-5
+      .bg-grey-100.font-bold.rounded-lg.border.shadow-lg.px-8.py-4.m-5
         h1.text-2xl.mb-4 Ridership Graphs
         div.mb-3
           label.mr-3 Route
@@ -28,6 +28,13 @@ block content
             option(value="") Select a Route
             each route in routes
               option(value=route.route_id)= formatRouteName(route)
+
+        div.mb-3.hidden
+          label.mr-3 Graph Type
+          select(id="graph-type-select")
+            option(value="") Select a Graph Type
+            option(value="stop") By stop
+            option(value="day") By day
 
         div.mb-3.hidden
           label.mr-3 Direction
@@ -39,7 +46,8 @@ block content
           select(id="day-select")
             option(value="all") All time
 
-    canvas(id="gtfs-ride-chart" width="400" height="100")
+    canvas(id="stop-graph" width="400" height="100" style="display: none;")
+    canvas(id="day-graph" width="400" height="100" style="display: none;")
 
 
   //- Use #{variable} format to inject values from pug to client side js
