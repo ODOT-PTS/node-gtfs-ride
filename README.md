@@ -11,7 +11,7 @@
 
 ## Command Line Usage
 
-The `gtfs-ride` command-line utility will download the GTFS file specified in `config.js` and then build GTFS-ride data.
+The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data specified in `config.js` and then build [GTFS-ride](https://www.gtfs-ride.org) data.
 
 If you would like to use this library as a command-line utility, you can install it globally directly from [npm](https://npmjs.org):
 
@@ -37,46 +37,68 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 | option | type | description |
 | ------ | ---- | ----------- |
-| [`gtfs`](#gtfs) | object | Information about the GTFS and GTFS-RT to be used. |
+| [`agencyKey`](#agencykey) | string | A short name representing the agency. |
+| [`apcPath`](#apcpath) | string | The local path to an APC CSV data file. |
+| [`apcType`](#apctype) | string | The type of APC data. |
+| [`apcUrl`](#apcurl) | string | A URL to of an APC CSV data file. |
+| [`gtfsPath`](#gtfspath) | string | The local path to a static GTFS file. |
+| [`gtfsUrl`](#gtfsurl) | string | A URL of an agency's static GTFS. |
 | [`sqlitePath`](#sqlitepath) | string | A path to an SQLite database. Optional, defaults to using an in-memory database. |
 
-### gtfs
 
-{Object} Specify the GTFS file to be imported in an `gtfs` object. Static GTFS files can be imported via a `url` or a local `path`.
+### agencyKey 
 
-`agency_key` is a short name you create that is specific to that GTFS file.
+{String} A short name you create that is specific to that GTFS file.
 
-`gtfs_static_url` is the URL of an agency's static GTFS. Either `gtfs_static_url` or `gtfs_static_path` is required.
-
-`gtfs_static_path` is the local path to an agency's static GTFS on your local machine. Either `gtfs_static_url` or `gtfs_static_path` is required.
-
-* Specify a download URL for static GTFS:
 ```
-{
-  "gtfs": {
-    "agency_key": "marintransit",
-    "gtfs_static_url": "https://marintransit.org/data/google_transit.zip"
-  }
-}
+    "agencyKey": "bart"
 ```
+
+### apcPath
+
+{String} The local path to an APC CSV file. Either `apcUrl` or `apcPath` is required.
+
+```
+    "apcPath": "/path/to/the/apc.csv"
+```
+
+### apcType
+
+{String} The type of APC data. Valid options are `cet`, `rvtd` and `ltd`.
+
+```
+    "apcType": "cet"
+```
+
+
+### apcUrl
+
+{String} A URL to of an APC CSV. Either `apcUrl` or `apcPath` is required.
+
+```
+    "apcUrl": "https://bart.gov/data/apc.csv"
+```
+
+### gtfsPath
+
+{String} The local path to a static GTFS file. Can be zipped or unzipped. Either `gtfsUrl` or `gtfsPath` is required.
 
 * Specify a path to a zipped GTFS file:
 ```
-{
-  "gtfs": {
-    "agency_key": "marintransit",
-    "gtfs_static_path": "/path/to/the/gtfs.zip"s
-  }
-}
+    "gtfsPath": "/path/to/the/gtfs.zip"
 ```
 * Specify a path to an unzipped GTFS file:
 ```
-{
-  "gtfs": {
-    "agency_key": "marintransit",
-    "gtfs_static_path": "/path/to/the/unzipped/gtfs"
-  }
-}
+
+    "gtfsPath": "/path/to/the/unzipped/gtfs"
+```
+
+### gtfsUrl
+
+{String} A URL of an agency's static GTFS. Either `gtfsUrl` or `gtfsPath` is required.
+
+```
+    "gtfsUrl": "https://bart.gov/data/google_transit.zip"
 ```
 
 ### sqlitePath
