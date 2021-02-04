@@ -2,7 +2,7 @@
 # GTFS-Ride
 
 [![NPM version](https://img.shields.io/npm/v/gtfs-ride.svg?style=flat)](https://www.npmjs.com/package/gtfs-ride)
-[![David](https://img.shields.io/david/blinktaginc/gtfs-ride.svg)]()
+[![David](https://img.shields.io/david/ODOT-PTS/node-gtfs-ride.svg)]()
 [![npm](https://img.shields.io/npm/dm/gtfs-ride.svg?style=flat)]()
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
@@ -132,4 +132,4 @@ Once running, you can view the HTML in your browser at [localhost:3000](http://l
 
 ## Contributing
 
-Pull requests are welcome, as is feedback and [reporting issues](https://github.com/blinktaginc/gtfs-ride/issues).
+Pull requests are welcome, as is feedback and [reporting issues](https://github.com/ODOT-PTS/node-gtfs-ride/issues).
