@@ -39,7 +39,6 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 | ------ | ---- | ----------- |
 | [`agencyKey`](#agencykey) | string | A short name representing the agency. |
 | [`apcPath`](#apcpath) | string | The local path to an APC CSV data file. |
-| [`apcType`](#apctype) | string | The type of APC data. |
 | [`apcUrl`](#apcurl) | string | A URL to of an APC CSV data file. |
 | [`gtfsPath`](#gtfspath) | string | The local path to a static GTFS file. |
 | [`gtfsUrl`](#gtfsurl) | string | A URL of an agency's static GTFS. |
@@ -61,15 +60,6 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 ```
     "apcPath": "/path/to/the/apc.csv"
 ```
-
-### apcType
-
-{String} The type of APC data. Valid options are `cet`, `rvtd` and `ltd`.
-
-```
-    "apcType": "cet"
-```
-
 
 ### apcUrl
 
