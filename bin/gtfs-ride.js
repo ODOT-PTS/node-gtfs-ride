@@ -1,16 +1,30 @@
 #!/usr/bin/env node
 
 // eslint-disable-next-line prefer-destructuring
-const argv = require('yargs').usage('Usage: $0 --config ./config.json')
+const argv = require('yargs').usage('Usage: $0 --configPath ./config.json')
   .help()
   .option('c', {
     alias: 'configPath',
     describe: 'Path to config file',
-    default: './config.json',
     type: 'string'
   })
-  .option('s', {
-    alias: 'skipGTFSImport',
+  .option('apcPath', {
+    describe: 'Path to APC CSV file',
+    type: 'string'
+  })
+  .option('apcUrl', {
+    describe: 'URL of APC CSV file',
+    type: 'string'
+  })
+  .option('gtfsPath', {
+    describe: 'Path to GTFS (zipped or unzipped)',
+    type: 'string'
+  })
+  .option('gtfsUrl', {
+    describe: 'URL of zipped GTFS file',
+    type: 'string'
+  })
+  .option('skipGTFSImport', {
     describe: 'Don’t import GTFS file.',
     type: 'boolean'
   })

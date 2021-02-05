@@ -11,15 +11,19 @@
 
 ## Command Line Usage
 
-The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data specified in `config.js` and then build [GTFS-ride](https://www.gtfs-ride.org) data.
+The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data and then build [GTFS-ride](https://www.gtfs-ride.org) data.. You can specify the paths of the data as a command line argument or by using a JSON configuuration file.
 
-If you would like to use this library as a command-line utility, you can install it globally directly from [npm](https://npmjs.org):
+To use this library as a command-line utility, you can install it globally directly from [npm](https://npmjs.org):
 
     npm install gtfs-ride -g
 
 Then you can run `gtfs-ride`.
 
-    gtfs-ride
+    gtfs-ride --gtfsPath /path/to/gtfs --apcPath /path/to/apc/data.csv
+
+or
+
+    gtfs-ride --configPath /path/to/your/custom-config.json
 
 ### Command-line options
 
@@ -29,6 +33,40 @@ Allows specifying a path to a configuration json file. By default, `gtfs-ride` w
 
     gtfs-ride --configPath /path/to/your/custom-config.json
 
+`gtfsPath`
+
+Specify a local path to GTFS, either zipped or unzipped.
+
+    gtfs-ride --gtfsPath /path/to/your/gtfs.zip
+
+or 
+    
+    gtfs-ride --gtfsPath /path/to/your/unzipped/gtfs
+
+`gtfsUrl`
+
+Specify a URL to a zipped GTFS file.
+    
+    gtfs-ride --gtfsUrl http://www.bart.gov/dev/schedules/google_transit.zip
+
+`apcPath`
+
+Specify a local path to APC CSV data.
+    
+    gtfs-ride --apcPath /path/to/your/apcdata.csv
+
+`apcUrl`
+
+Specify a URL to APC CSV data.
+    
+    gtfs-ride --apcUrl http://www.myagency.com/apcdata.csv
+
+`exportPath`
+
+Specify where to export GTFS Ride data to. Defaults to `./output`.
+
+    gtfs-ride --exportPath /path/where/data/should/go
+
 ## Configuration
 
 Copy `config-sample.json` to `config.json` and then add your projects configuration to `config.json`.
@@ -37,21 +75,12 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 | option | type | description |
 | ------ | ---- | ----------- |
-| [`agencyKey`](#agencykey) | string | A short name representing the agency. |
 | [`apcPath`](#apcpath) | string | The local path to an APC CSV data file. |
 | [`apcUrl`](#apcurl) | string | A URL to of an APC CSV data file. |
+| [`exportPath`](#exportpath) | string | The path where GTFS Ride data should be exported. |
 | [`gtfsPath`](#gtfspath) | string | The local path to a static GTFS file. |
 | [`gtfsUrl`](#gtfsurl) | string | A URL of an agency's static GTFS. |
 | [`sqlitePath`](#sqlitepath) | string | A path to an SQLite database. Optional, defaults to using an in-memory database. |
-
-
-### agencyKey 
-
-{String} A short name you create that is specific to that GTFS file.
-
-```
-    "agencyKey": "bart"
-```
 
 ### apcPath
 
@@ -89,6 +118,14 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ```
     "gtfsUrl": "https://bart.gov/data/google_transit.zip"
+```
+
+### exportPath
+
+{String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the  directory where the script was run.
+
+```
+    "exportPath": "/path/where/gtfs/ride/data/should/go"
 ```
 
 ### sqlitePath
