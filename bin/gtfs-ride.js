@@ -10,11 +10,16 @@ const argv = require('yargs').usage('Usage: $0 --config ./config.json')
     type: 'string'
   })
   .option('s', {
-    alias: 'skipImport',
+    alias: 'skipGTFSImport',
     describe: 'Don’t import GTFS file.',
     type: 'boolean'
   })
-  .default('skipImport', undefined)
+  .default('skipGTFSImport', undefined)
+  .option('skipAPCImport', {
+    describe: 'Don’t import APC data.',
+    type: 'boolean'
+  })
+  .default('skipAPCImport', undefined)
   .argv;
 
 const fileUtils = require('../lib/file-utils');
