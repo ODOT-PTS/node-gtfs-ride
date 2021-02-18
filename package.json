@@ -6,7 +6,7 @@
     "transit",
     "gtfs",
     "transportation",
-    "gtfs-rt"
+    "gtfs-ride"
   ],
   "private": false,
   "author": "Brendan Nee <brendan@blinktag.com>",

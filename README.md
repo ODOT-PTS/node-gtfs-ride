@@ -11,19 +11,29 @@
 
 ## Command Line Usage
 
-The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data and then build [GTFS-ride](https://www.gtfs-ride.org) data.. You can specify the paths of the data as a command line argument or by using a JSON configuration file.
+The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data and then build [GTFS-Ride](https://www.gtfs-ride.org) data. You can specify the paths of the data as a command line argument or by using a JSON configuration file.
 
-To use this library as a command-line utility, you can install it globally directly from [npm](https://npmjs.org):
+### Setup
+
+* Install node.js https://nodejs.org/en/download/
+
+
+* Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
     npm install gtfs-ride -g
 
-Then you can run `gtfs-ride`.
+
+### Usage
+
+See command-line options below for more information.
 
     gtfs-ride --gtfsPath /path/to/gtfs --apcPath /path/to/apc/data.csv
 
 or
 
     gtfs-ride --configPath /path/to/your/custom-config.json
+
+This will import APC and GTFS data from the paths specified and output a GTFS-Ride file.
 
 ### Command-line options
 
