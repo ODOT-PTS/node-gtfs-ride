@@ -90,6 +90,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 | [`exportPath`](#exportpath) | string | The path where GTFS Ride data should be exported. |
 | [`gtfsPath`](#gtfspath) | string | The local path to a static GTFS file. |
 | [`gtfsUrl`](#gtfsurl) | string | A URL of an agency's static GTFS. |
+| [`mergeDuplicateBoardAlights`](#mergeduplicateboardalights) | boolean | Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`. |
 | [`sqlitePath`](#sqlitepath) | string | A path to an SQLite database. Optional, defaults to using an in-memory database. |
 
 ### apcPath
@@ -106,6 +107,14 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ```
     "apcUrl": "https://bart.gov/data/apc.csv"
+```
+
+### exportPath
+
+{String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the  directory where the script was run.
+
+```
+    "exportPath": "/path/where/gtfs/ride/data/should/go"
 ```
 
 ### gtfsPath
@@ -130,12 +139,12 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
     "gtfsUrl": "https://bart.gov/data/google_transit.zip"
 ```
 
-### exportPath
+### mergeDuplicateBoardAlights
 
-{String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the  directory where the script was run.
+{Boolean} Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`.
 
 ```
-    "exportPath": "/path/where/gtfs/ride/data/should/go"
+    "mergeDuplicateBoardAlights": "false
 ```
 
 ### sqlitePath
