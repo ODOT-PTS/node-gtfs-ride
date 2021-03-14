@@ -31,7 +31,6 @@
     "lodash": "^4.17.20",
     "luxon": "^1.26.0",
     "morgan": "^1.10.0",
-    "neek": "^1.1.2",
     "node-fetch": "^2.6.1",
     "pretty-error": "^3.0.3",
     "progress": "^2.0.3",
