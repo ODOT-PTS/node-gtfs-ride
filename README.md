@@ -8,10 +8,33 @@
 
 [![NPM](https://nodei.co/npm/gtfs-ride.png?downloads=true)](https://nodei.co/npm/gtfs-ride/)
 
+## About GTFS-Ride
+
+`gtfs-ride` is a command-line utility for processing transit ridership data. It will import a GTFS file and some Automated Passenger Counter (APC) data and then export ridership data in [GTFS-Ride](https://www.gtfs-ride.org) format.
+
+## Supported APC data formats
+
+Currently, `gtfs-ride` works for ridership data in the following APC data formats:
+
+* CET
+* RVTD
+* LTD
+
+The type of APC data format is auto-detected based on the field names in the APC data. If `gtfs-ride` can not detect the type, it will throw an error.
+
+## How it works
+
+`gtfs-ride` allows you to specify which GTFS and APC data to use as command-line arguments or by using a JSON configuration file. An example of a configuration file is located in this repo as `config-sample.json`.
+
+1. Run `gtfs-ride` command-line tool
+2. Specify GTFS file and APC data covering the same time period using command-line arguments or via JSON configuration file.
+3. `gtfs-ride` imports specified GTFS into SQLite using [`node-gtfs`](https://github.com/blinktaginc/node-gtfs)
+4. `gtfs-ride` imports specified APC data into SQLite. The type of APC data is auto-detected.
+5. Errors and issues while importing APC data are logged to a `log.txt` file included in the `output` folder.
+6. Valid GTFS-Ride data is exported to the `output` folder.
+
 
 ## Command Line Usage
-
-The `gtfs-ride` command-line utility will import a GTFS file and the Automated Passenger Counter (APC) data and then build [GTFS-Ride](https://www.gtfs-ride.org) data. You can specify the paths of the data as a command line argument or by using a JSON configuration file.
 
 ### Setup
 
