@@ -1,0 +1,141 @@
+extends layout
+
+block content
+  .container.mx-auto.justify-center
+    .py-12.bg-white
+      .max-w-7xl.mx-auto.px-4(class='sm:px-6 lg:px-8')
+        div(class='lg:text-center')
+          h2.text-base.text-indigo-600.font-semibold.tracking-wide.uppercase GTFS-Ride
+          p.mt-2.text-3xl.leading-8.font-extrabold.tracking-tight.text-gray-900(class='sm:text-4xl')
+            | Summary of GTFS-Ride Data Creation
+        .mt-10
+          dl.space-y-10(class='md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10')
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: adjustments
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900= `"${apcType.toUpperCase()}" APC Data Type`
+              dd.mt-2.ml-16.text-base.text-gray-500 The type of Automated Passenger Counter (APC) data imported.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: calendar
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 #{dateRange}
+              dd.mt-2.ml-16.text-base.text-gray-500 The date range of GTFS-Ride data created.
+            
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: clock
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 #{seconds} Seconds
+              dd.mt-2.ml-16.text-base.text-gray-500 Time required to generate GTFS-Ride data.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: outline/exclamation
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 
+                  a.underline.text-blue-600(class="hover:text-blue-800" href="#issues") #{issues.length.toLocaleString()} Issues
+              dd.mt-2.ml-16.text-base.text-gray-500 These are errors, missing data or ambiguities between GTFS and APC data.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: users
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 #{boardAlightCount.toLocaleString()} Board Alights
+              dd.mt-2.ml-16.text-base.text-gray-500 Number of board-alight records created in GTFS-Ride.
+            
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: location-marker
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 #{stopsWithData.length.toLocaleString()} Stops with APC data
+              dd.mt-2.ml-16.text-base.text-gray-500 These are stops where some APC data existed.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: location-marker
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900
+                  a.underline.text-blue-600(class="hover:text-blue-800" href="#stopsWithoutData") #{stopsWithoutData.length.toLocaleString()} Stops without APC data
+              dd.mt-2.ml-16.text-base.text-gray-500 These are stops in the GTFS which were not used by any APC data.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: switch-horizontal
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900 #{tripsWithData.length.toLocaleString()} Trips with APC data
+              dd.mt-2.ml-16.text-base.text-gray-500 These are trips where some APC data existed.
+
+            .relative
+              dt
+                .absolute.flex.items-center.justify-center.h-12.w-12.rounded-md.bg-indigo-500.text-white
+                  // Heroicon name: switch-horizontal
+                  svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor' aria-hidden='true')
+                    path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4')
+                p.ml-16.text-lg.leading-6.font-medium.text-gray-900
+                  a.underline.text-blue-600(class="hover:text-blue-800" href="#tripsWithoutData") #{tripsWithoutData.length.toLocaleString()} Trips without APC data
+              dd.mt-2.ml-16.text-base.text-gray-500 These are trips in the GTFS which were not used by any APC data.
+
+    .py-12#issues
+      h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{issues.length.toLocaleString()} Issues
+      table.table-auto
+        thead
+          tr
+            th.text-left.border.border-gray-300.px-4.py-2 Issue Number
+            th.text-left.border.border-gray-300.px-4.py-2 Issue
+        tbody
+          each issue, index in issues
+            tr
+              td.border.border-gray-300.px-4.py-2 #{index + 1}
+              td.border.border-gray-300.px-4.py-2 #{issue}
+
+    .py-12#stopsWithoutData
+      h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{stopsWithoutData.length.toLocaleString()} Stops without APC data
+      table.table-auto
+        thead
+          tr
+            th.text-left.border.border-gray-300.px-4.py-2 Stop ID
+            th.text-left.border.border-gray-300.px-4.py-2 Stop Name
+        tbody
+          each stop in stopsWithoutData
+            tr
+              td.border.border-gray-300.px-4.py-2 #{stop.stop_id}
+              td.border.border-gray-300.px-4.py-2 #{stop.stop_name}
+
+
+    .py-12#tripsWithoutData
+      h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{tripsWithoutData.length.toLocaleString()} Trips without APC data
+      table.table-auto
+        thead
+          tr
+            th.text-left.border.border-gray-300.px-4.py-2 Trip ID
+            th.text-left.border.border-gray-300.px-4.py-2 Route ID
+            th.text-left.border.border-gray-300.px-4.py-2 Route Name
+            th.text-left.border.border-gray-300.px-4.py-2 Direction ID
+        tbody
+          each trip in tripsWithoutData
+            tr
+              td.border.border-gray-300.px-4.py-2 #{trip.trip_id}
+              td.border.border-gray-300.px-4.py-2 #{trip.route_id}
+              td.border.border-gray-300.px-4.py-2 #{trip.route_short_name} #{trip.route_long_name}
+              td.border.border-gray-300.px-4.py-2 #{trip.direction_id}
