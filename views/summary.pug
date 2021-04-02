@@ -98,26 +98,30 @@ block content
 
     .py-12#issues
       h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{issues.length.toLocaleString()} Issues
+      if issues.length > 10000
+        p <i>Only the first 10,000 issues are shown</i>
       table.table-auto
         thead
           tr
             th.text-left.border.border-gray-300.px-4.py-2 Issue Number
             th.text-left.border.border-gray-300.px-4.py-2 Issue
         tbody
-          each issue, index in issues
+          each issue, index in issues.slice(0, 10000)
             tr
               td.border.border-gray-300.px-4.py-2 #{index + 1}
               td.border.border-gray-300.px-4.py-2 #{issue}
 
     .py-12#stopsWithoutData
       h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{stopsWithoutData.length.toLocaleString()} Stops without APC data
+      if stopsWithoutData.length > 10000
+        p <i>Only the first 10,000 stops are shown</i>
       table.table-auto
         thead
           tr
             th.text-left.border.border-gray-300.px-4.py-2 Stop ID
             th.text-left.border.border-gray-300.px-4.py-2 Stop Name
         tbody
-          each stop in stopsWithoutData
+          each stop in stopsWithoutData.slice(0, 10000)
             tr
               td.border.border-gray-300.px-4.py-2 #{stop.stop_id}
               td.border.border-gray-300.px-4.py-2 #{stop.stop_name}
@@ -125,6 +129,8 @@ block content
 
     .py-12#tripsWithoutData
       h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{tripsWithoutData.length.toLocaleString()} Trips without APC data
+      if tripsWithoutData.length > 10000
+        p <i>Only the first 10,000 trips are shown</i>
       table.table-auto
         thead
           tr
@@ -133,7 +139,7 @@ block content
             th.text-left.border.border-gray-300.px-4.py-2 Route Name
             th.text-left.border.border-gray-300.px-4.py-2 Direction ID
         tbody
-          each trip in tripsWithoutData
+          each trip in tripsWithoutData.slice(0, 10000)
             tr
               td.border.border-gray-300.px-4.py-2 #{trip.trip_id}
               td.border.border-gray-300.px-4.py-2 #{trip.route_id}
