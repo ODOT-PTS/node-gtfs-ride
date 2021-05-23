@@ -1,1 +1,1 @@
-module.exports = require('./lib/gtfs-ride');
+export { default } from './lib/gtfs-ride.js';

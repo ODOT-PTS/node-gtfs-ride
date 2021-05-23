@@ -1,25 +1,28 @@
-const path = require('path');
-const gtfs = require('gtfs');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { openDb, getRoutes, getTrips, getDb, getStops } from 'gtfs';
 
-const express = require('express');
-const logger = require('morgan');
-const toposort = require('toposort');
-const { groupBy, last, uniqBy } = require('lodash');
+import express from 'express';
+import logger from 'morgan';
+import toposort from 'toposort';
+import { groupBy, last, uniqBy } from 'lodash-es';
 
-const utils = require('../lib/utils');
-const selectedConfig = require('../config');
+import { setDefaultConfig } from '../lib/utils.js';
 
 const app = express();
 const router = new express.Router();
 
-const config = utils.setDefaultConfig(selectedConfig);
+const selectedConfig = JSON.parse(readFileSync(new URL('../config.json', import.meta.url)));
+
+const config = setDefaultConfig(selectedConfig);
 // Override noHead config option so full HTML pages are generated
 config.assetPath = '/';
 config.log = console.log;
 config.logWarning = console.warn;
 config.logError = console.error;
 
-gtfs.openDb(config).catch(error => {
+openDb(config).catch(error => {
   if (error instanceof Error && error.code === 'SQLITE_CANTOPEN') {
     config.logError(`Unable to open sqlite database "${config.sqlitePath}" defined as \`sqlitePath\` config.json. Ensure the parent directory exists or remove \`sqlitePath\` from config.json.`);
   }
@@ -32,10 +35,10 @@ gtfs.openDb(config).catch(error => {
  */
 router.get('/', async (request, response, next) => {
   try {
-    const routes = await gtfs.getRoutes({}, ['route_id', 'route_short_name', 'route_long_name'], [['route_short_name', 'ASC']]);
+    const routes = await getRoutes({}, ['route_id', 'route_short_name', 'route_long_name'], [['route_short_name', 'ASC']]);
 
     const routesWithDirections = await Promise.all(routes.map(async route => {
-      const trips = await gtfs.getTrips({
+      const trips = await getTrips({
         route_id: route.route_id
       }, [
         'trip_headsign',
@@ -56,7 +59,7 @@ router.get('/', async (request, response, next) => {
 
 router.get('/api/board-alights', async (request, response, next) => {
   try {
-    const db = gtfs.getDb();
+    const db = getDb();
     const values = [request.query.route_id];
 
     let directionQuery = '';
@@ -100,7 +103,7 @@ router.get('/api/board-alights', async (request, response, next) => {
 
     const routeStopOrder = toposort(stopGraph);
 
-    const stops = await gtfs.getStops({ stop_id: routeStopOrder }, ['stop_id', 'stop_name']);
+    const stops = await getStops({ stop_id: routeStopOrder }, ['stop_id', 'stop_name']);
 
     return response.json({
       routeStopOrder,
@@ -112,14 +115,14 @@ router.get('/api/board-alights', async (request, response, next) => {
   }
 });
 
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', path.join(fileURLToPath(import.meta.url), '../../views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(fileURLToPath(import.meta.url), '../../public')));
 
 app.use('/', router);
-app.set('port', selectedConfig.port || process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 
 const server = app.listen(app.get('port'), () => {
   console.log(`Express server listening on port ${server.address().port}`);
