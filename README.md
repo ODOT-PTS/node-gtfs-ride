@@ -17,8 +17,9 @@
 Currently, `gtfs-ride` works for ridership data in the following APC data formats:
 
 * CET
-* RVTD
+* Cherriots
 * LTD
+* RVTD
 * WETA
 
 The type of APC data format is auto-detected based on the field names in the APC data. If `gtfs-ride` can not detect the type, it will throw an error.
