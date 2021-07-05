@@ -24,15 +24,13 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "cli-table": "^0.3.6",
-    "csv-parse": "^4.15.4",
-    "express": "^4.17.1",
-    "gtfs": "3.0.1",
+    "csv-parse": "^4.16.0",
+    "gtfs": "3.0.4",
     "lodash-es": "^4.17.21",
     "luxon": "^1.27.0",
-    "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
-    "open": "^8.1.0",
-    "pretty-error": "^3.0.3",
+    "open": "^8.2.1",
+    "pretty-error": "^3.0.4",
     "progress": "^2.0.3",
     "pug": "^3.0.2",
     "sanitize-filename": "^1.6.3",
@@ -44,10 +42,10 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "xo": "^0.40.1"
+    "xo": "^0.41.0"
   },
   "engines": {
-    "node": ">= 14.17.0"
+    "node": ">= 14.17.2"
   },
   "xo": {
     "esnext": true,
