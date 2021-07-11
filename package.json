@@ -15,7 +15,7 @@
   "type": "module",
   "scripts": {
     "start": "node ./app",
-    "test": "xo"
+    "lint": "xo --fix"
   },
   "bin": {
     "gtfs-ride": "bin/gtfs-ride.js"

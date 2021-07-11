@@ -14,32 +14,32 @@ const { argv } = yargs(hideBin(process.argv))
   .option('c', {
     alias: 'configPath',
     describe: 'Path to config file',
-    type: 'string'
+    type: 'string',
   })
   .option('apcPath', {
     describe: 'Path to APC CSV file',
-    type: 'string'
+    type: 'string',
   })
   .option('apcUrl', {
     describe: 'URL of APC CSV file',
-    type: 'string'
+    type: 'string',
   })
   .option('gtfsPath', {
     describe: 'Path to GTFS (zipped or unzipped)',
-    type: 'string'
+    type: 'string',
   })
   .option('gtfsUrl', {
     describe: 'URL of zipped GTFS file',
-    type: 'string'
+    type: 'string',
   })
   .option('skipGTFSImport', {
     describe: 'Don’t import GTFS file.',
-    type: 'boolean'
+    type: 'boolean',
   })
   .default('skipGTFSImport', undefined)
   .option('skipAPCImport', {
     describe: 'Don’t import APC data.',
-    type: 'boolean'
+    type: 'boolean',
   })
   .default('skipAPCImport', undefined);
 
