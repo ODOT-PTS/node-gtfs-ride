@@ -22,12 +22,12 @@
   },
   "main": "index",
   "dependencies": {
-    "chalk": "^4.1.1",
+    "chalk": "^4.1.2",
     "cli-table": "^0.3.6",
     "csv-parse": "^4.16.0",
-    "gtfs": "3.0.4",
+    "gtfs": "3.1.0",
     "lodash-es": "^4.17.21",
-    "luxon": "^1.27.0",
+    "luxon": "^2.0.1",
     "node-fetch": "^2.6.1",
     "open": "^8.2.1",
     "pretty-error": "^3.0.4",
@@ -42,7 +42,7 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "xo": "^0.41.0"
+    "xo": "^0.42.0"
   },
   "engines": {
     "node": ">= 14.17.2"
