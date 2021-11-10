@@ -8,6 +8,13 @@
     "transportation",
     "gtfs-ride"
   ],
+  "bugs": {
+    "url": "https://github.com/ODOT-PTS/node-gtfs-ride/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ODOT-PTS/node-gtfs-ride.git"
+  },
   "private": false,
   "author": "Brendan Nee <brendan@blinktag.com>",
   "contributors": [],
@@ -63,5 +70,14 @@
       ]
     }
   },
-  "false": {}
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/keep-a-changelog": {
+        "filename": "CHANGELOG.md"
+      }
+    }
+  }
 }
