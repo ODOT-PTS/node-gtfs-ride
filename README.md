@@ -10,7 +10,7 @@
 
 ## About GTFS-Ride
 
-`gtfs-ride` is a command-line utility for creating [GTFS-Ride](https://www.gtfs-ride.org) formatted data. GTFS-Ride is a format for storing transit ridership data. It takes two inputs: a GTFS file and Automated Passenger Counter (APC) data and exports GTFS-Ride data.
+`gtfs-ride` is a command-line utility for creating [GTFS-Ride](https://www.gtfsride.org) formatted data. GTFS-Ride is a format for storing transit ridership data. It takes two inputs: a GTFS file and Automated Passenger Counter (APC) data and exports GTFS-Ride data.
 
 ## Supported APC data formats
 
