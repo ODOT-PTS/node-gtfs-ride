@@ -29,30 +29,30 @@
   },
   "main": "index",
   "dependencies": {
-    "chalk": "^4.1.2",
-    "cli-table": "^0.3.6",
-    "csv-parse": "^4.16.0",
-    "gtfs": "3.1.0",
+    "chalk": "^5.0.0",
+    "cli-table": "^0.3.11",
+    "csv-parse": "^5.0.3",
+    "gtfs": "3.2.1",
     "lodash-es": "^4.17.21",
-    "luxon": "^2.0.1",
-    "node-fetch": "^2.6.1",
-    "open": "^8.2.1",
-    "pretty-error": "^3.0.4",
+    "luxon": "^2.2.0",
+    "node-fetch": "^3.1.0",
+    "open": "^8.4.0",
+    "pretty-error": "^4.0.0",
     "progress": "^2.0.3",
     "pug": "^3.0.2",
     "sanitize-filename": "^1.6.3",
-    "strip-bom-stream": "^4.0.0",
+    "strip-bom-stream": "^5.0.0",
     "timer-machine": "^1.1.0",
-    "tmp-promise": "^3.0.2",
+    "tmp-promise": "^3.0.3",
     "toposort": "^2.0.2",
     "untildify": "^4.0.0",
-    "yargs": "^17.0.1"
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
-    "xo": "^0.42.0"
+    "xo": "^0.47.0"
   },
   "engines": {
-    "node": ">= 14.17.2"
+    "node": ">= 16.13.1"
   },
   "xo": {
     "esnext": true,
