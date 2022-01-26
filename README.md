@@ -16,8 +16,8 @@
 
 Currently, `gtfs-ride` works for ridership data in the following APC data formats:
 
+* Syncromatics
 * CET
-* Cherriots
 * LTD
 * RVTD
 * WETA
