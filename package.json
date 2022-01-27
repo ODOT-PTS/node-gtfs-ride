@@ -31,11 +31,11 @@
   "dependencies": {
     "chalk": "^5.0.0",
     "cli-table": "^0.3.11",
-    "csv-parse": "^5.0.3",
-    "gtfs": "3.2.1",
+    "csv-parse": "^5.0.4",
+    "gtfs": "3.2.4",
     "lodash-es": "^4.17.21",
-    "luxon": "^2.2.0",
-    "node-fetch": "^3.1.0",
+    "luxon": "^2.3.0",
+    "node-fetch": "^3.2.0",
     "open": "^8.4.0",
     "pretty-error": "^4.0.0",
     "progress": "^2.0.3",
@@ -46,7 +46,7 @@
     "tmp-promise": "^3.0.3",
     "toposort": "^2.0.2",
     "untildify": "^4.0.0",
-    "yargs": "^17.3.0"
+    "yargs": "^17.3.1"
   },
   "devDependencies": {
     "xo": "^0.47.0"
