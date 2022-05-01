@@ -17,6 +17,7 @@
 Currently, `gtfs-ride` works for ridership data in the following APC data formats:
 
 * GMV
+* Ridecheck Plus
 * Swiftly
 * CET
 * LTD
