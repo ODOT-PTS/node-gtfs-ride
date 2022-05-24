@@ -2,7 +2,6 @@
 # GTFS-Ride
 
 [![NPM version](https://img.shields.io/npm/v/gtfs-ride.svg?style=flat)](https://www.npmjs.com/package/gtfs-ride)
-[![David](https://img.shields.io/david/ODOT-PTS/node-gtfs-ride.svg)]()
 [![npm](https://img.shields.io/npm/dm/gtfs-ride.svg?style=flat)]()
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
@@ -42,7 +41,6 @@ The type of APC data format is auto-detected based on the field names in the APC
 5. Errors and issues while importing APC data are logged to a `log.txt` file included in the `output` folder.
 6. Valid GTFS-Ride data is exported to the `output` folder.
 
-
 ## Command Line Usage
 
 ### Setup
@@ -53,7 +51,6 @@ The type of APC data format is auto-detected based on the field names in the APC
 * Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
     npm install gtfs-ride -g
-
 
 ### Usage
 
