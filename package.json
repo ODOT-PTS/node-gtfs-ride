@@ -21,8 +21,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "node ./app",
-    "lint": "xo --fix"
+    "lint": "eslint **/*.js",
+    "lint-fix": "eslint **/*.js --fix",
+    "prepare": "husky install"
   },
   "bin": {
     "gtfs-ride": "bin/gtfs-ride.js"
@@ -49,26 +50,14 @@
     "yargs": "^17.6.2"
   },
   "devDependencies": {
-    "xo": "^0.53.1"
+    "husky": "^7.0.0",
+    "pretty-quick": "^3.1.3"
   },
   "engines": {
     "node": ">= 16.15.0"
   },
-  "xo": {
-    "esnext": true,
-    "space": true,
-    "rules": {
-      "camelcase": [
-        "error",
-        {
-          "properties": "never"
-        }
-      ],
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ]
-    }
+  "prettier": {
+    "singleQuote": true
   },
   "release-it": {
     "github": {
