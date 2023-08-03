@@ -1,4 +1,3 @@
-
 # GTFS-Ride
 
 [![NPM version](https://img.shields.io/npm/v/gtfs-ride.svg?style=flat)](https://www.npmjs.com/package/gtfs-ride)
@@ -13,20 +12,20 @@
 
 `gtfs-ride` can import APC data in the following ways:
 
-* From a local CSV file
-* From a CSV file available at a URL
-* From the Swiftly API
+- From a local CSV file
+- From a CSV file available at a URL
+- From the Swiftly API
 
 ## Supported APC data formats
 
 Currently, `gtfs-ride` works for ridership data in the following APC data formats:
 
-* GMV
-* Swiftly
-* CET
-* LTD
-* RVTD
-* WETA
+- GMV
+- Swiftly
+- CET
+- LTD
+- RVTD
+- WETA
 
 The type of APC data format is auto-detected based on the field names in the APC data. If `gtfs-ride` can not detect the type, it will throw an error.
 
@@ -45,12 +44,11 @@ The type of APC data format is auto-detected based on the field names in the APC
 
 ### Setup
 
-* Install node.js https://nodejs.org/en/download/
+- Install node.js https://nodejs.org/en/download/
 
+- Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
-* Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
-
-    npm install gtfs-ride -g
+  npm install gtfs-ride -g
 
 ### Usage
 
@@ -78,26 +76,26 @@ Specify a local path to GTFS, either zipped or unzipped.
 
     gtfs-ride --gtfsPath /path/to/your/gtfs.zip
 
-or 
-    
+or
+
     gtfs-ride --gtfsPath /path/to/your/unzipped/gtfs
 
 `gtfsUrl`
 
 Specify a URL to a zipped GTFS file.
-    
+
     gtfs-ride --gtfsUrl http://www.bart.gov/dev/schedules/google_transit.zip
 
 `apcPath`
 
 Specify a local path to APC CSV data.
-    
+
     gtfs-ride --apcPath /path/to/your/apcdata.csv
 
 `apcUrl`
 
 Specify a URL to APC CSV data.
-    
+
     gtfs-ride --apcUrl http://www.myagency.com/apcdata.csv
 
 `exportPath`
@@ -112,19 +110,21 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
     cp config-sample.json config.json
 
-| option | type | description |
-| ------ | ---- | ----------- |
-| [`apcPath`](#apcpath) | string | The local path to an APC CSV data file. |
-| [`apcUrl`](#apcurl) | string | A URL to of an APC CSV data file. |
-| [`exportPath`](#exportpath) | string | The path where GTFS Ride data should be exported. |
-| [`gtfsPath`](#gtfspath) | string | The local path to a static GTFS file. |
-| [`gtfsUrl`](#gtfsurl) | string | A URL of an agency's static GTFS. |
+| option                                                      | type    | description                                                                                  |
+| ----------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| [`apcPath`](#apcpath)                                       | string  | The local path to an APC CSV data file.                                                      |
+| [`apcUrl`](#apcurl)                                         | string  | A URL to of an APC CSV data file.                                                            |
+| [`exportPath`](#exportpath)                                 | string  | The path where GTFS Ride data should be exported.                                            |
+| [`gtfsPath`](#gtfspath)                                     | string  | The local path to a static GTFS file.                                                        |
+| [`gtfsUrl`](#gtfsurl)                                       | string  | A URL of an agency's static GTFS.                                                            |
+| [`startDate`](#startDate)                                   | int     | Optional. Ignore all APC data before this date.                                              |
+| [`endDate`](#endDate)                                       | int     | Optional. Ignore all APC data after this date.                                               |
 | [`mergeDuplicateBoardAlights`](#mergeduplicateboardalights) | boolean | Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`. |
-| [`sqlitePath`](#sqlitepath) | string | A path to an SQLite database. Optional, defaults to using an in-memory database. |
-| [`swiftlyAgencyKey`](#swiftlyagencykey) | string | The Swiftly agency key to request data for. |
-| [`swiftlyAPIKey`](#swiftlyapikey) | string | The API key for the Swiftly API. |
-| [`swiftlyEndDate`](#swiftlyenddate) | string | The end date for requesting data from the Swiftly API. |
-| [`swiftlyStartDate`](#swiftlystartdate) | string | The start date for requesting data from the Swiftly API. |
+| [`sqlitePath`](#sqlitepath)                                 | string  | A path to an SQLite database. Optional, defaults to using an in-memory database.             |
+| [`swiftlyAgencyKey`](#swiftlyagencykey)                     | string  | The Swiftly agency key to request data for.                                                  |
+| [`swiftlyAPIKey`](#swiftlyapikey)                           | string  | The API key for the Swiftly API.                                                             |
+| [`swiftlyEndDate`](#swiftlyenddate)                         | string  | The end date for requesting data from the Swiftly API.                                       |
+| [`swiftlyStartDate`](#swiftlystartdate)                     | string  | The start date for requesting data from the Swiftly API.                                     |
 
 ### apcPath
 
@@ -144,7 +144,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ### exportPath
 
-{String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the  directory where the script was run.
+{String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the directory where the script was run.
 
 ```
     "exportPath": "/path/where/gtfs/ride/data/should/go"
@@ -154,11 +154,14 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The local path to a static GTFS file. Can be zipped or unzipped. Either `gtfsUrl` or `gtfsPath` is required.
 
-* Specify a path to a zipped GTFS file:
+- Specify a path to a zipped GTFS file:
+
 ```
     "gtfsPath": "/path/to/the/gtfs.zip"
 ```
-* Specify a path to an unzipped GTFS file:
+
+- Specify a path to an unzipped GTFS file:
+
 ```
 
     "gtfsPath": "/path/to/the/unzipped/gtfs"
@@ -170,6 +173,22 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ```
     "gtfsUrl": "https://bart.gov/data/google_transit.zip"
+```
+
+### startDate
+
+{Integer} If present, exclude importing APC data from before this date, formatted as YYYYMMDD format. Optional.
+
+```
+    "startDate": 20210101
+```
+
+### endDate
+
+{Integer} If present, exclude importing APC data from after this date, formatted as YYYYMMDD format. Optional.
+
+```
+    "endDate": 20210301
 ```
 
 ### mergeDuplicateBoardAlights
@@ -190,7 +209,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ### swiftlyAgencyKey
 
-{String} The Swiftly agency key to request data for, for example `rtamaryland`. Only required if using the Swiftly API for fetching APC data. 
+{String} The Swiftly agency key to request data for, for example `rtamaryland`. Only required if using the Swiftly API for fetching APC data.
 
 ```
     "swiftlyAgencyKey": "rtamaryland"
@@ -198,7 +217,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ### swiftlyAPIKey
 
-{String} The API key for the Swiftly API. Only required if using the [Swiftly API](https://swiftly-inc.stoplight.io/docs/standalone/2a4d2a9d90671-apc-connector-csv-export-beta) for fetching APC data. 
+{String} The API key for the Swiftly API. Only required if using the [Swiftly API](https://swiftly-inc.stoplight.io/docs/standalone/2a4d2a9d90671-apc-connector-csv-export-beta) for fetching APC data.
 
 ```
     "swiftlyAPIKey": "YOUR-SWIFTLY-API-KEY"
@@ -214,7 +233,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ### swiftlyStartDate
 
-{String} The start date for requesting data from the Swiftly API in MM-DD-YYYY format. Only used if using the Swiftly API for fetching APC data. If omitted, the date from 1 week ago is used to fetch data from the previous week. 
+{String} The start date for requesting data from the Swiftly API in MM-DD-YYYY format. Only used if using the Swiftly API for fetching APC data. If omitted, the date from 1 week ago is used to fetch data from the previous week.
 
 ```
     "swiftlyStartDate": "05-10-2022"
