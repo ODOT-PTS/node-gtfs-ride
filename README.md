@@ -22,7 +22,7 @@ Currently, `gtfs-ride` works for ridership data in the following APC data format
 
 - GMV
 - Swiftly
-- CET
+- Passio
 - LTD
 - RVTD
 - WETA
