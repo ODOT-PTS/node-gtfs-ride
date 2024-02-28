@@ -48,7 +48,11 @@ The type of APC data format is auto-detected based on the field names in the APC
 
 - Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
-  npm install gtfs-ride -g
+    npm install gtfs-ride -g
+
+### Updating
+
+    npm update gtfs-ride -g
 
 ### Usage
 
