@@ -5,7 +5,6 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { getConfig } from '../lib/file-utils.js';
-import { formatError } from '../lib/log-utils.js';
 import gtfsRide from '../index.js';
 
 const { argv } = yargs(hideBin(process.argv))
@@ -43,17 +42,6 @@ const { argv } = yargs(hideBin(process.argv))
   })
   .default('skipAPCImport', undefined);
 
-const handleError = (error) => {
-  const text = error || 'Unknown Error';
-  process.stdout.write(`\n${formatError(text)}\n`);
-  console.error(error);
-  process.exit(1);
-};
-
-const setupImport = async () => {
-  const config = await getConfig(argv);
-  await gtfsRide(config);
-  process.exit();
-};
-
-setupImport().catch(handleError);
+const config = await getConfig(argv);
+await gtfsRide(config);
+process.exit();
