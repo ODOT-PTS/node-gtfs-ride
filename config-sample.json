@@ -1,7 +1,6 @@
 {
   "gtfsPath": "data/RVTD/gtfs",
   "apcPath": "data/RVTD/boardings_alightings_rvtd_2017.csv",
-  "sqlitePath": "/tmp/gtfs",
   "mergeDuplicateBoardAlights": false,
   "startDate": 20170101,
   "endDate": 20170301
