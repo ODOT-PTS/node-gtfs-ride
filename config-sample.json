@@ -3,5 +3,6 @@
   "apcPath": "data/RVTD/boardings_alightings_rvtd_2017.csv",
   "mergeDuplicateBoardAlights": false,
   "startDate": 20170101,
-  "endDate": 20170301
+  "endDate": 20170301,
+  "ignoreMissingGTFSDates": false
 }

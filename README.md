@@ -124,6 +124,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 | [`startDate`](#startDate)                                   | int     | Optional. Ignore all APC data before this date.                                              |
 | [`endDate`](#endDate)                                       | int     | Optional. Ignore all APC data after this date.                                               |
 | [`mergeDuplicateBoardAlights`](#mergeduplicateboardalights) | boolean | Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`. |
+| [`ignoreMissingGTFSDates`](#ignoremissinggtfsdates)         | string  | Ignore errors caused by no service in GTFS.                                                            |
 | [`sqlitePath`](#sqlitepath)                                 | string  | A path to an SQLite database. Optional, defaults to using an in-memory database.             |
 | [`swiftlyAgencyKey`](#swiftlyagencykey)                     | string  | The Swiftly agency key to request data for.                                                  |
 | [`swiftlyAPIKey`](#swiftlyapikey)                           | string  | The API key for the Swiftly API.                                                             |
@@ -201,6 +202,14 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 ```
     "mergeDuplicateBoardAlights": "false
+```
+
+### ignoreMissingGTFSDates
+
+{Boolean} Whether or not to ignore errors caused by no service defined for a specific date in GTFS. Defaults to `false`.
+
+```
+    "ignoreMissingGTFSDates": "false
 ```
 
 ### sqlitePath
