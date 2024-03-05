@@ -1,7 +1,7 @@
 {
   "name": "gtfs-ride",
   "description": "Build GTFS-Ride data from Automated Passenger Counter (APC) data.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "keywords": [
     "transit",
     "gtfs",
