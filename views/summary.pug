@@ -105,12 +105,16 @@ block content
             th.text-left.border.border-gray-300.px-4.py-2 Issue
             th.text-left.border.border-gray-300.px-4.py-2 Count
             th.text-left.border.border-gray-300.px-4.py-2 Dates
+            th.text-left.border.border-gray-300.px-4.py-2 Boardings 
+            th.text-left.border.border-gray-300.px-4.py-2 Alightings
         tbody
           each issueSummary, index in issueSummaries
             tr
               td.border.border-gray-300.px-4.py-2 #{issueSummary.type}
               td.border.border-gray-300.px-4.py-2 #{issueSummary.count}
               td.border.border-gray-300.px-4.py-2 #{issueSummary.dates.join(', ')}
+              td.border.border-gray-300.px-4.py-2 #{issueSummary.boardings}
+              td.border.border-gray-300.px-4.py-2 #{issueSummary.alightings}
 
       h3.text-xl.font-bold.tracking-tight.text-gray-900.pb-2 Issue List
       if issues.length > 10000
@@ -121,6 +125,8 @@ block content
             th.text-left.border.border-gray-300.px-4.py-2 Issue Number
             th.text-left.border.border-gray-300.px-4.py-2 Issue
             th.text-left.border.border-gray-300.px-4.py-2 Date
+            th.text-left.border.border-gray-300.px-4.py-2 Boardings
+            th.text-left.border.border-gray-300.px-4.py-2 Alightings
             th.text-left.border.border-gray-300.px-4.py-2 Line Number
         tbody
           each issue, index in issues.slice(0, 10000)
@@ -128,6 +134,8 @@ block content
               td.border.border-gray-300.px-4.py-2 #{index + 1}
               td.border.border-gray-300.px-4.py-2 #{issue.message}
               td.border.border-gray-300.px-4.py-2 #{issue.date}
+              td.border.border-gray-300.px-4.py-2 #{issue.boardings}
+              td.border.border-gray-300.px-4.py-2 #{issue.alightings}
               td.border.border-gray-300.px-4.py-2 #{issue.lineNumber}
 
     .py-12#stopsWithoutData
