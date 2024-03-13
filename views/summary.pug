@@ -98,6 +98,21 @@ block content
 
     .py-12#issues
       h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{issues.length.toLocaleString()} Issues
+      h3.text-xl.font-bold.tracking-tight.text-gray-900.pb-2 Summary of Issues
+      table.table-auto.mb-4
+        thead
+          tr
+            th.text-left.border.border-gray-300.px-4.py-2 Issue
+            th.text-left.border.border-gray-300.px-4.py-2 Count
+            th.text-left.border.border-gray-300.px-4.py-2 Dates
+        tbody
+          each issueSummary, index in issueSummaries
+            tr
+              td.border.border-gray-300.px-4.py-2 #{issueSummary.type}
+              td.border.border-gray-300.px-4.py-2 #{issueSummary.count}
+              td.border.border-gray-300.px-4.py-2 #{issueSummary.dates.join(', ')}
+
+      h3.text-xl.font-bold.tracking-tight.text-gray-900.pb-2 Issue List
       if issues.length > 10000
         p <i>Only the first 10,000 issues are shown</i>
       table.table-auto
@@ -105,11 +120,15 @@ block content
           tr
             th.text-left.border.border-gray-300.px-4.py-2 Issue Number
             th.text-left.border.border-gray-300.px-4.py-2 Issue
+            th.text-left.border.border-gray-300.px-4.py-2 Date
+            th.text-left.border.border-gray-300.px-4.py-2 Line Number
         tbody
           each issue, index in issues.slice(0, 10000)
             tr
               td.border.border-gray-300.px-4.py-2 #{index + 1}
-              td.border.border-gray-300.px-4.py-2 #{issue}
+              td.border.border-gray-300.px-4.py-2 #{issue.message}
+              td.border.border-gray-300.px-4.py-2 #{issue.date}
+              td.border.border-gray-300.px-4.py-2 #{issue.lineNumber}
 
     .py-12#stopsWithoutData
       h2.text-3xl.font-extrabold.tracking-tight.text-gray-900.pb-4 #{stopsWithoutData.length.toLocaleString()} Stops without APC data
