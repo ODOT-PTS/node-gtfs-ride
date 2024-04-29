@@ -9,4 +9,37 @@ html
   body
     block content
 
-    script(src="/js/index.js")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js")
+    script
+    script.
+      (async function() {
+        const issueDateCounts = !{JSON.stringify(issueDateCounts) || '\'\''};
+
+        new Chart(
+          document.getElementById('issuechart'),
+          {
+            type: 'bar',
+            data: {
+              labels: issueDateCounts.map(row => row.date),
+              datasets: [
+                {
+                  label: 'Issues by date',
+                  data: issueDateCounts.map(row => row.count)
+                }
+              ]
+            },
+            options: {
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    label: function(context) {
+                      const issueDateCount = issueDateCounts[context.dataIndex];
+                      return `${issueDateCount.count} Issues, ${issueDateCount.boardings} Boardings, ${issueDateCount.alightings} Alightings`;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        );
+      })();
