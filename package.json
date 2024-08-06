@@ -33,7 +33,7 @@
     "chalk": "^5.3.0",
     "cli-table": "^0.3.11",
     "csv-parse": "^5.5.6",
-    "gtfs": "4.13.2",
+    "gtfs": "4.13.4",
     "lodash-es": "^4.17.21",
     "luxon": "^3.4.4",
     "node-fetch": "^3.3.2",
@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.7",
     "prettier": "^3.3.3"
   },
   "engines": {
