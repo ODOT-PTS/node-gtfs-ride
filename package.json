@@ -33,11 +33,11 @@
     "chalk": "^5.4.1",
     "cli-table": "^0.3.11",
     "csv-parse": "^5.6.0",
-    "gtfs": "4.15.15",
+    "gtfs": "4.17.2",
     "lodash-es": "^4.17.21",
-    "luxon": "^3.5.0",
+    "luxon": "^3.6.1",
     "node-fetch": "^3.3.2",
-    "open": "^10.1.0",
+    "open": "^10.1.1",
     "pretty-error": "^4.0.0",
     "progress": "^2.0.3",
     "pug": "^3.0.3",
@@ -51,11 +51,11 @@
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.2"
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3"
   },
   "engines": {
-    "node": ">= 16.15.0"
+    "node": ">= 20.0.0"
   },
   "prettier": {
     "singleQuote": true
