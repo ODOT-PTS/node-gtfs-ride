@@ -48,21 +48,29 @@ The type of APC data format is auto-detected based on the field names in the APC
 
 - Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
-    npm install gtfs-ride -g
+```bash
+npm install gtfs-ride -g
+```
 
 ### Updating
 
-    npm update gtfs-ride -g
+```bash
+npm update gtfs-ride -g
+```
 
 ### Usage
 
 See command-line options below for more information.
 
-    gtfs-ride --gtfsPath /path/to/gtfs --apcPath /path/to/apc/data.csv
+```bash
+gtfs-ride --gtfsPath /path/to/gtfs --apcPath /path/to/apc/data.csv
+```
 
 or
 
-    gtfs-ride --configPath /path/to/your/custom-config.json
+```bash
+gtfs-ride --configPath /path/to/your/custom-config.json
+```
 
 This will import APC and GTFS data from the paths specified and output a GTFS-Ride file.
 
@@ -72,47 +80,63 @@ This will import APC and GTFS data from the paths specified and output a GTFS-Ri
 
 Allows specifying a path to a configuration json file. By default, `gtfs-ride` will look for a `config.json` file in the directory it is being run from.
 
-    gtfs-ride --configPath /path/to/your/custom-config.json
+```bash
+gtfs-ride --configPath /path/to/your/custom-config.json
+```
 
 `gtfsPath`
 
 Specify a local path to GTFS, either zipped or unzipped.
 
-    gtfs-ride --gtfsPath /path/to/your/gtfs.zip
+```bash
+gtfs-ride --gtfsPath /path/to/your/gtfs.zip
+```
 
 or
 
-    gtfs-ride --gtfsPath /path/to/your/unzipped/gtfs
+```bash
+gtfs-ride --gtfsPath /path/to/your/unzipped/gtfs
+```
 
 `gtfsUrl`
 
 Specify a URL to a zipped GTFS file.
 
-    gtfs-ride --gtfsUrl http://www.bart.gov/dev/schedules/google_transit.zip
+```bash
+gtfs-ride --gtfsUrl http://www.bart.gov/dev/schedules/google_transit.zip
+```
 
 `apcPath`
 
 Specify a local path to APC CSV data.
 
-    gtfs-ride --apcPath /path/to/your/apcdata.csv
+```bash
+gtfs-ride --apcPath /path/to/your/apcdata.csv
+```
 
 `apcUrl`
 
 Specify a URL to APC CSV data.
 
-    gtfs-ride --apcUrl http://www.myagency.com/apcdata.csv
+```bash
+gtfs-ride --apcUrl http://www.myagency.com/apcdata.csv
+```
 
 `exportPath`
 
 Specify where to export GTFS Ride data to. Defaults to `./output`.
 
-    gtfs-ride --exportPath /path/where/data/should/go
+```bash
+gtfs-ride --exportPath /path/where/data/should/go
+```
 
 ## Configuration
 
 Copy `config-sample.json` to `config.json` and then add your projects configuration to `config.json`.
 
-    cp config-sample.json config.json
+```bash
+cp config-sample.json config.json
+```
 
 | option                                                      | type    | description                                                                                  |
 | ----------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
@@ -135,7 +159,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The local path to an APC CSV file. Either `apcUrl`, `apcPath` or `swiftlyAgencyKey` is required.
 
-```
+```json
     "apcPath": "/path/to/the/apc.csv"
 ```
 
@@ -143,7 +167,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} A URL to of an APC CSV. Either `apcUrl`, `apcPath` or `swiftlyAgencyKey` is required.
 
-```
+```json
     "apcUrl": "https://bart.gov/data/apc.csv"
 ```
 
@@ -151,7 +175,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The path where GTFS Ride data should be exported. Optional, defaults to the directory `output` in the directory where the script was run.
 
-```
+```json
     "exportPath": "/path/where/gtfs/ride/data/should/go"
 ```
 
@@ -161,14 +185,13 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 - Specify a path to a zipped GTFS file:
 
-```
+```json
     "gtfsPath": "/path/to/the/gtfs.zip"
 ```
 
 - Specify a path to an unzipped GTFS file:
 
-```
-
+```json
     "gtfsPath": "/path/to/the/unzipped/gtfs"
 ```
 
@@ -176,7 +199,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} A URL of an agency's static GTFS. Either `gtfsUrl` or `gtfsPath` is required.
 
-```
+```json
     "gtfsUrl": "https://bart.gov/data/google_transit.zip"
 ```
 
@@ -184,7 +207,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {Integer} If present, exclude importing APC data from before this date, formatted as YYYYMMDD format. Optional.
 
-```
+```json
     "startDate": 20210101
 ```
 
@@ -192,7 +215,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {Integer} If present, exclude importing APC data from after this date, formatted as YYYYMMDD format. Optional.
 
-```
+```json
     "endDate": 20210301
 ```
 
@@ -200,7 +223,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {Boolean} Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`.
 
-```
+```json
     "mergeDuplicateBoardAlights": "false
 ```
 
@@ -208,7 +231,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {Boolean} Whether or not to ignore errors caused by no service defined for a specific date in GTFS. Defaults to `false`.
 
-```
+```json
     "ignoreMissingGTFSDates": "false
 ```
 
@@ -216,7 +239,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} A path to an SQLite database. Optional, defaults to using an in-memory database.
 
-```
+```json
     "sqlitePath": "/tmp/gtfs"
 ```
 
@@ -224,7 +247,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The Swiftly agency key to request data for, for example `rtamaryland`. Only required if using the Swiftly API for fetching APC data.
 
-```
+```json
     "swiftlyAgencyKey": "rtamaryland"
 ```
 
@@ -232,7 +255,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The API key for the Swiftly API. Only required if using the [Swiftly API](https://swiftly-inc.stoplight.io/docs/standalone/2a4d2a9d90671-apc-connector-csv-export-beta) for fetching APC data.
 
-```
+```json
     "swiftlyAPIKey": "YOUR-SWIFTLY-API-KEY"
 ```
 
@@ -240,7 +263,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The end date for requesting data from the Swiftly API in MM-DD-YYYY format. Only used if using the Swiftly API for fetching APC data. If omitted, the current date is used.
 
-```
+```json
     "swiftlyEndDate": "05-20-2022"
 ```
 
@@ -248,7 +271,7 @@ Copy `config-sample.json` to `config.json` and then add your projects configurat
 
 {String} The start date for requesting data from the Swiftly API in MM-DD-YYYY format. Only used if using the Swiftly API for fetching APC data. If omitted, the date from 1 week ago is used to fetch data from the previous week.
 
-```
+```json
     "swiftlyStartDate": "05-10-2022"
 ```
 
