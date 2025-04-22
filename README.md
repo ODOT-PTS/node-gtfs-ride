@@ -44,7 +44,7 @@ The type of APC data format is auto-detected based on the field names in the APC
 
 ### Setup
 
-- Install node.js https://nodejs.org/en/download/
+- Install node.js <https://nodejs.org/en/download/>
 
 - Install `gtfs-ride` globally directly from [npm](https://npmjs.org):
 
@@ -141,14 +141,14 @@ cp config-sample.json config.json
 | option                                                      | type    | description                                                                                  |
 | ----------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
 | [`apcPath`](#apcpath)                                       | string  | The local path to an APC CSV data file.                                                      |
-| [`apcUrl`](#apcurl)                                         | string  | A URL to of an APC CSV data file.                                                            |
+| [`apcUrl`](#apcurl)                                         | string  | A URL to an APC CSV data file.                                                            |
 | [`exportPath`](#exportpath)                                 | string  | The path where GTFS Ride data should be exported.                                            |
 | [`gtfsPath`](#gtfspath)                                     | string  | The local path to a static GTFS file.                                                        |
 | [`gtfsUrl`](#gtfsurl)                                       | string  | A URL of an agency's static GTFS.                                                            |
-| [`startDate`](#startDate)                                   | int     | Optional. Ignore all APC data before this date.                                              |
-| [`endDate`](#endDate)                                       | int     | Optional. Ignore all APC data after this date.                                               |
+| [`startDate`](#startdate)                                   | int     | Optional. Ignore all APC data before this date.                                              |
+| [`endDate`](#enddate)                                       | int     | Optional. Ignore all APC data after this date.                                               |
 | [`mergeDuplicateBoardAlights`](#mergeduplicateboardalights) | boolean | Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`. |
-| [`ignoreMissingGTFSDates`](#ignoremissinggtfsdates)         | string  | Ignore errors caused by no service in GTFS.                                                            |
+| [`ignoreMissingGTFSDates`](#ignoremissinggtfsdates)         | boolean | Ignore errors caused by no service in GTFS.                                                            |
 | [`sqlitePath`](#sqlitepath)                                 | string  | A path to an SQLite database. Optional, defaults to using an in-memory database.             |
 | [`swiftlyAgencyKey`](#swiftlyagencykey)                     | string  | The Swiftly agency key to request data for.                                                  |
 | [`swiftlyAPIKey`](#swiftlyapikey)                           | string  | The API key for the Swiftly API.                                                             |
@@ -224,7 +224,7 @@ cp config-sample.json config.json
 {Boolean} Whether or not to merge duplicate board-alight records by summing them. Defaults to `false`.
 
 ```json
-    "mergeDuplicateBoardAlights": "false
+    "mergeDuplicateBoardAlights": false
 ```
 
 ### ignoreMissingGTFSDates
@@ -232,7 +232,7 @@ cp config-sample.json config.json
 {Boolean} Whether or not to ignore errors caused by no service defined for a specific date in GTFS. Defaults to `false`.
 
 ```json
-    "ignoreMissingGTFSDates": "false
+    "ignoreMissingGTFSDates": false
 ```
 
 ### sqlitePath
